@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOGGER / Dogger Scientific / DGS / DG 品牌架構圖</title>
+  <style>
+    :root {
+      --bg: #f6f7f8;
+      --dot: rgba(23, 32, 38, 0.12);
+      --card: #ffffff;
+      --text: #172026;
+      --muted: #667780;
+      --line: #d6e0e4;
+      --teal: #28b6bd;
+      --teal-dark: #148a91;
+      --brown: #82746c;
+      --black: #111111;
+      --gray: #8f8f8f;
+      --amber: #d99a00;
+      --blue: #3778c2;
+      --green-soft: #e8f8f7;
+      --blue-soft: #edf6ff;
+      --amber-soft: #fff7df;
+      --gray-soft: #f2f4f5;
+      --red-soft: #fff0f0;
+      --shadow: 0 18px 50px rgba(18, 30, 37, 0.09);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --font: "Inter", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(circle, var(--dot) 1px, transparent 1px),
+        var(--bg);
+      background-size: 22px 22px;
+    }
+
+    .page {
+      max-width: 1780px;
+      margin: 0 auto;
+      padding: 42px 32px 88px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 34px;
+      margin-bottom: 34px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 880px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .legend {
+      min-width: 360px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .legend-title {
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--teal);
+      flex: 0 0 auto;
+    }
+
+    .legend-dot.blue { background: var(--blue); }
+    .legend-dot.black { background: var(--black); }
+    .legend-dot.gray { background: #9ca3a7; }
+    .legend-dot.amber { background: var(--amber); }
+
+    .board {
+      position: relative;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(214,224,228,0.95);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+      overflow-x: auto;
+    }
+
+    .flow {
+      min-width: 1520px;
+      display: grid;
+      grid-template-columns: 1.12fr 1.05fr 1.05fr 0.98fr 0.98fr;
+      gap: 28px;
+      align-items: stretch;
+      position: relative;
+    }
+
+    .stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stage-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      min-height: 38px;
+    }
+
+    .stage-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #172026;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .stage-name {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .logo-card {
+      position: relative;
+      min-height: 372px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(18, 30, 37, 0.075);
+      overflow: hidden;
+    }
+
+    .logo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-top: 7px solid var(--teal);
+      pointer-events: none;
+    }
+
+    .logo-card.legal::before { border-color: var(--blue); }
+    .logo-card.transaction::before { border-color: var(--amber); }
+    .logo-card.black::before { border-color: var(--black); }
+    .logo-card.gray::before { border-color: var(--gray); }
+
+    .card-kicker {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .logo-sim {
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 4px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .legal-name {
+      font-size: 31px;
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #1d2d35;
+    }
+
+    .mark-d {
+      width: 82px;
+      height: 82px;
+      background: var(--teal);
+      border-radius: 17px 31px 31px 17px;
+      transform: skewX(-2deg);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .mark-d::after {
+      content: "";
+      position: absolute;
+      left: 34%;
+      top: 28%;
+      width: 0;
+      height: 0;
+      border-top: 19px solid transparent;
+      border-bottom: 19px solid transparent;
+      border-left: 28px solid #fff;
+      border-radius: 5px;
+    }
+
+    .word-dogger {
+      font-size: 43px;
+      font-weight: 850;
+      color: var(--brown);
+      letter-spacing: 0.04em;
+    }
+
+    .word-scientific {
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 850;
+      color: #4f5a60;
+      letter-spacing: -0.02em;
+    }
+
+    .word-dgs,
+    .word-dgsci {
+      font-size: 62px;
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      color: #000;
+      line-height: 0.95;
+    }
+
+    .ci-sup {
+      font-size: 24px;
+      vertical-align: super;
+      margin-left: 4px;
+      display: inline-block;
+      transform: translateY(-17px);
+    }
+
+    .dg-badge {
+      width: 116px;
+      height: 116px;
+      border: 8px solid #111;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: 950;
+      letter-spacing: -0.12em;
+      color: #111;
+      flex: 0 0 auto;
+    }
+
+    .series-word {
+      font-size: 52px;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      color: #111;
+      line-height: 1;
+    }
+
+    [data-preview-src] {
+      cursor: zoom-in;
+    }
+
+    .hover-preview {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: min(320px, calc(100vw - 24px));
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(19, 30, 36, 0.12);
+      box-shadow: 0 24px 60px rgba(17, 25, 31, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate3d(0, 0, 0) scale(0.98);
+      transition:
+        opacity 140ms ease,
+        visibility 140ms ease,
+        transform 140ms ease;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .hover-preview.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .hover-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(70vh, 360px);
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .logo-title {
+      font-size: 26px;
+      line-height: 1.16;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .role-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .role-pill.legal { background: var(--blue-soft); color: #195d9e; }
+    .role-pill.transaction { background: var(--amber-soft); color: #8a6200; }
+    .role-pill.black { background: #f0f0f0; color: #111; }
+    .role-pill.gray { background: #f3f3f3; color: #666; }
+
+    .card-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 14px;
+    }
+
+    .use-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f2f6f7;
+      color: #34444b;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 204px;
+      right: -42px;
+      width: 55px;
+      height: 28px;
+      z-index: 4;
+    }
+
+    .arrow::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      left: 0;
+      width: 43px;
+      height: 2px;
+      background: #9eaaaf;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: 4px;
+      top: 7px;
+      width: 14px;
+      height: 14px;
+      border-top: 2px solid #9eaaaf;
+      border-right: 2px solid #9eaaaf;
+      transform: rotate(45deg);
+    }
+
+    .stage:last-child .arrow { display: none; }
+
+    .variant-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .variant-card {
+      background: #fff;
+      border: 1px dashed #b8c3c7;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      min-height: 138px;
+    }
+
+    .variant-card .logo-sim {
+      min-height: 46px;
+      margin: 0 0 10px;
+    }
+
+    .variant-card .word-dgsci { font-size: 42px; }
+    .variant-card .ci-sup { font-size: 17px; transform: translateY(-12px); }
+
+    .variant-title {
+      font-size: 17px;
+      font-weight: 950;
+      margin-bottom: 4px;
+    }
+
+    .variant-desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .matrix {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1.65fr;
+      gap: 24px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 25px;
+      letter-spacing: -0.02em;
+    }
+
+    .rules {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: #f8fbfc;
+      border: 1px solid #e3eaed;
+    }
+
+    .rule-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #172026;
+      font-weight: 950;
+      font-size: 14px;
+    }
+
+    .rule strong { display: block; margin-bottom: 3px; }
+    .rule span { color: var(--muted); font-size: 13px; }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #fff;
+      font-size: 13px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      padding: 12px 10px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th:last-child, td:last-child { border-right: none; }
+    tr:last-child td { border-bottom: none; }
+    th { background: #f5f8f9; font-weight: 950; }
+    td:first-child, th:first-child { text-align: left; font-weight: 900; }
+
+    .yes { color: #0d8b64; font-weight: 950; }
+    .maybe { color: #a36f00; font-weight: 950; }
+    .no { color: #c54242; font-weight: 950; }
+
+    .decision-strip {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .decision {
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(18, 30, 37, 0.06);
+    }
+
+    .decision h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .decision p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .warning {
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: var(--red-soft);
+      border: 1px solid #f1c4c4;
+    }
+
+    .warning h2 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .warning p {
+      margin: 0;
+      color: #704040;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1200px) {
+      .hero { flex-direction: column; }
+      .legend { width: 100%; }
+      .matrix { grid-template-columns: 1fr; }
+      .decision-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <h1>DOGGER / Dogger Scientific / DGS / DG<br>品牌層級架構圖</h1>
+        <p>
+          這版加入最新前提：<strong>DOGGER INSTRUMENTS CO., LTD.</strong> 是公司對公司、正式交易與法人層名稱；
+          <strong>Dogger Scientific</strong> 是官網交易與科學產品品牌語言；<strong>DGS</strong> 是 Dogger Scientific 的縮寫；
+          <strong>DG Badge</strong> 則是產品本體上的簡化識別印記。
+        </p>
+      </div>
+      <aside class="legend">
+        <div class="legend-title">圖例</div>
+        <div class="legend-row"><span class="legend-dot blue"></span>法人 / 正式 B2B 交易層</div>
+        <div class="legend-row"><span class="legend-dot"></span>企業品牌 / 官網交易品牌</div>
+        <div class="legend-row"><span class="legend-dot amber"></span>縮寫與產品線語言</div>
+        <div class="legend-row"><span class="legend-dot black"></span>產品本體識別，重視單色與小尺寸</div>
+        <div class="legend-row"><span class="legend-dot gray"></span>系列 / 子品牌層</div>
+      </aside>
+    </header>
+
+    <section class="board">
+      <div class="flow">
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-label">LEVEL 0</div>
+            <div class="stage-name">法人 / B2B 正式交易層</div>
+          </div>
+          <article class="logo-card legal">
+            <div class="card-kicker">Legal Entity</div>
+            <div class="logo-sim">
+              <div class="legal-name">DOGGER INSTRUMENTS<br>CO., LTD.</div>
+            </div>
+            <h2 class="logo-title">正式公司全銜</h2>
+            <div class="role-pill legal">法人層 / 公司對公司</div>
+            <p class="card-desc">
+              用於正式商業往來與法律文件。它回答的是「法律上與公司對公司交易時，這家公司是誰」。
+            </p>
+            <div class="use-list">
+              <span class="chip">合約</span>
+              <span class="chip">報價單</span>
+              <span class="chip">發票</span>
+              <span class="chip">採購文件</span>
+              <span class="chip">進出口資料</span>
+            </div>
+          </article>
+          <div class="arrow"></div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-label">LEVEL 1</div>
+            <div class="stage-name">企業品牌層</div>
+          </div>
+          <article class="logo-card">
+            <div class="card-kicker">Corporate Brand</div>
+            <div class="logo-sim">
+              <div class="mark-d" data-preview-src="德記總公司.png"></div>
+              <div class="word-dogger">DOGGER</div>
+            </div>
+            <h2 class="logo-title">DOGGER</h2>
+            <div class="role-pill">企業主品牌</div>
+            <p class="card-desc">
+              代表德記母公司與企業形象。它是對外品牌感知的上層主識別，不等於產品本體印記。
+            </p>
+            <div class="use-list">
+              <span class="chip">官網首頁</span>
+              <span class="chip">公司簡介</span>
+              <span class="chip">名片</span>
+              <span class="chip">展會企業牆</span>
+              <span class="chip">企業簡報</span>
+            </div>
+          </article>
+          <div class="arrow"></div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-label">LEVEL 2</div>
+            <div class="stage-name">官網交易 / 科學產品品牌</div>
+          </div>
+          <article class="logo-card transaction">
+            <div class="card-kicker">Web Commerce / Science Brand</div>
+            <div class="logo-sim">
+              <div class="word-scientific">Dogger<br>Scientific</div>
+            </div>
+            <h2 class="logo-title">Dogger Scientific</h2>
+            <div class="role-pill transaction">官網交易品牌 / 科學產品品牌</div>
+            <p class="card-desc">
+              用於官網 About Us、商品頁與交易性場景。它比法人名稱更面向使用者，也更接近科學產品銷售語境。
+            </p>
+            <div class="use-list">
+              <span class="chip">官網 About Us</span>
+              <span class="chip">商品頁</span>
+              <span class="chip">客服 / 購物流程</span>
+              <span class="chip">科學產品介紹</span>
+            </div>
+          </article>
+          <div class="arrow"></div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-label">LEVEL 3</div>
+            <div class="stage-name">縮寫 / 總產品線語言</div>
+          </div>
+          <article class="logo-card black">
+            <div class="card-kicker">Abbreviation / Science Line</div>
+            <div class="logo-sim">
+              <div class="word-dgs" data-preview-src="德記儀器自有產品LOGO_02.png">DGS</div>
+            </div>
+            <h2 class="logo-title">DGS</h2>
+            <div class="role-pill black">Dogger Scientific 的縮寫</div>
+            <p class="card-desc">
+              可理解為 Dogger Scientific 的縮寫與科學產品線語言。適合在包裝、型錄與官網產品分類中建立產品體系。
+            </p>
+            <div class="use-list">
+              <span class="chip">網址 / 數位資產</span>
+              <span class="chip">包裝正面</span>
+              <span class="chip">型錄章節</span>
+              <span class="chip">產品線頁</span>
+            </div>
+          </article>
+
+          <div class="variant-stack">
+            <article class="variant-card">
+              <div class="logo-sim">
+                <div class="word-dgsci" data-preview-src="DGSCI_不知道用途.png">DGS<span class="ci-sup">ci</span></div>
+              </div>
+              <div class="variant-title">DGS<sup>ci</sup>｜Level 3A</div>
+              <p class="variant-desc">
+                DGS 的延伸視覺版，用來強化 scientific / technical 語氣；不宜取代 DGS，也不宜成為另一個平行主品牌。
+              </p>
+            </article>
+          </div>
+          <div class="arrow"></div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-label">LEVEL 4 / 5</div>
+            <div class="stage-name">產品本體與系列層</div>
+          </div>
+          <article class="logo-card black">
+            <div class="card-kicker">Product Mark</div>
+            <div class="logo-sim">
+              <div class="dg-badge" data-preview-src="德記儀器自有產品LOGO.jpg">DG</div>
+            </div>
+            <h2 class="logo-title">DG Badge</h2>
+            <div class="role-pill black">產品本體識別章</div>
+            <p class="card-desc">
+              DGS / Dogger Scientific 在產品本體上的簡化識別印記。適合燒杯、瓶身、器皿與小尺寸單色印刷。
+            </p>
+            <div class="use-list">
+              <span class="chip">燒杯</span>
+              <span class="chip">瓶身</span>
+              <span class="chip">器皿</span>
+              <span class="chip">單色小尺寸</span>
+            </div>
+          </article>
+
+          <article class="logo-card gray" style="min-height: 252px; margin-top: 16px;">
+            <div class="card-kicker">Series / Sub-brand</div>
+            <div class="logo-sim" style="min-height: 72px;">
+              <div class="dg-badge" style="width:78px;height:78px;border-width:6px;font-size:28px;">DG</div>
+              <div class="series-word" style="font-size:42px;" data-preview-src="德記儀器自有產品LOGO+子標.jpg">bato</div>
+            </div>
+            <h2 class="logo-title">DG LABO / DG BATO</h2>
+            <div class="role-pill gray">系列 / 子品牌</div>
+            <p class="card-desc">
+              DG 是產品識別母前綴，LABO / BATO 是系列名。建議用於包裝、型錄、官網系列頁，不一定每個產品本體都要放。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="matrix">
+      <aside class="panel">
+        <h2>使用規則</h2>
+        <div class="rules">
+          <div class="rule">
+            <div class="rule-num">0</div>
+            <div><strong>正式交易用 DOGGER INSTRUMENTS CO., LTD.</strong><span>合約、發票、報價、採購、進出口文件不可混用成品牌名稱。</span></div>
+          </div>
+          <div class="rule">
+            <div class="rule-num">1</div>
+            <div><strong>DOGGER 負責企業品牌形象</strong><span>出現在公司介紹與企業形象場景，不搶產品印記角色。</span></div>
+          </div>
+          <div class="rule">
+            <div class="rule-num">2</div>
+            <div><strong>Dogger Scientific 負責官網交易語境</strong><span>如果不是正式法人，建議表述為 DOGGER INSTRUMENTS CO., LTD. 旗下科學產品品牌。</span></div>
+          </div>
+          <div class="rule">
+            <div class="rule-num">3</div>
+            <div><strong>DGS 是 Dogger Scientific 的縮寫</strong><span>可作為網址、包裝、型錄與科學產品線的簡化語言。</span></div>
+          </div>
+          <div class="rule">
+            <div class="rule-num">4</div>
+            <div><strong>DG Badge 負責產品本體</strong><span>燒杯、瓶身、小面積單色印刷優先使用 DG，不必硬塞完整 DGS。</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel">
+        <h2>應用場景對照表</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>場景</th>
+              <th>正式全銜</th>
+              <th>DOGGER</th>
+              <th>Dogger Scientific</th>
+              <th>DGS</th>
+              <th>DG Badge</th>
+              <th>DG 系列</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>合約 / 發票 / 報價單</td>
+              <td class="yes">主用</td>
+              <td class="maybe">可作品牌</td>
+              <td class="no">避免當法人</td>
+              <td class="no">不建議</td>
+              <td class="no">不建議</td>
+              <td class="no">不建議</td>
+            </tr>
+            <tr>
+              <td>官網首頁</td>
+              <td class="maybe">頁尾可標</td>
+              <td class="yes">主用</td>
+              <td class="maybe">可描述</td>
+              <td class="maybe">輔助</td>
+              <td class="no">不優先</td>
+              <td class="no">不優先</td>
+            </tr>
+            <tr>
+              <td>官網 About Us</td>
+              <td class="yes">需交代</td>
+              <td class="yes">主品牌</td>
+              <td class="yes">交易品牌</td>
+              <td class="maybe">可解釋來源</td>
+              <td class="no">不優先</td>
+              <td class="no">不優先</td>
+            </tr>
+            <tr>
+              <td>官網商品頁</td>
+              <td class="no">不優先</td>
+              <td class="maybe">背書</td>
+              <td class="yes">主語境</td>
+              <td class="yes">產品線</td>
+              <td class="maybe">小章</td>
+              <td class="yes">系列頁用</td>
+            </tr>
+            <tr>
+              <td>包裝正面</td>
+              <td class="no">不優先</td>
+              <td class="maybe">小背書</td>
+              <td class="maybe">可描述</td>
+              <td class="yes">主用</td>
+              <td class="maybe">小章</td>
+              <td class="yes">系列產品可用</td>
+            </tr>
+            <tr>
+              <td>燒杯 / 瓶身</td>
+              <td class="no">不建議</td>
+              <td class="no">不建議</td>
+              <td class="no">不建議</td>
+              <td class="maybe">不優先</td>
+              <td class="yes">主用</td>
+              <td class="maybe">大尺寸可考慮</td>
+            </tr>
+            <tr>
+              <td>型錄章節 / 產品線頁</td>
+              <td class="no">不優先</td>
+              <td class="maybe">背書</td>
+              <td class="maybe">可描述</td>
+              <td class="yes">主用</td>
+              <td class="no">不優先</td>
+              <td class="yes">系列章節用</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section class="decision-strip">
+      <div class="decision">
+        <h3>為什麼 DGS 合理？</h3>
+        <p>DGS 可被定義為 Dogger Scientific 的縮寫，因此它不是從正式法人名稱來，而是從官網交易與科學產品品牌語言來。</p>
+      </div>
+      <div class="decision">
+        <h3>為什麼產品用 DG？</h3>
+        <p>DG 是 DGS 在產品本體上的簡化識別。它比 DGS 更適合燒杯、瓶身、曲面、小尺寸與單色印刷。</p>
+      </div>
+      <div class="decision">
+        <h3>最需要確認什麼？</h3>
+        <p>Dogger Scientific Co., Ltd. 如果不是正式法人，官網應避免讓它看起來像另一家公司，可改成「旗下科學產品品牌」。</p>
+      </div>
+    </section>
+
+    <section class="warning">
+      <h2>命名治理提醒</h2>
+      <p>
+        最大風險不是名稱多，而是每個名稱都像「公司名」。建議明確區分：
+        <strong>DOGGER INSTRUMENTS CO., LTD.</strong> 是法人，<strong>DOGGER</strong> 是企業品牌，
+        <strong>Dogger Scientific</strong> 是官網交易與科學產品品牌，<strong>DGS</strong> 是其縮寫，
+        <strong>DG</strong> 是產品本體識別章。
+      </p>
+    </section>
+  </main>
+  <div class="hover-preview" id="hoverPreview" aria-hidden="true">
+    <img id="hoverPreviewImage" alt="">
+  </div>
+  <script>
+    (() => {
+      const targets = document.querySelectorAll("[data-preview-src]");
+      const preview = document.getElementById("hoverPreview");
+      const previewImage = document.getElementById("hoverPreviewImage");
+
+      if (!targets.length || !preview || !previewImage) {
+        return;
+      }
+
+      const offset = 18;
+      let lastPoint = null;
+
+      function placePreview(point) {
+        const previewWidth = preview.offsetWidth;
+        const previewHeight = preview.offsetHeight;
+        const maxLeft = window.innerWidth - previewWidth - 12;
+        const maxTop = window.innerHeight - previewHeight - 12;
+        const left = Math.max(12, Math.min(point.clientX + offset, maxLeft));
+        const top = Math.max(12, Math.min(point.clientY + offset, maxTop));
+
+        preview.style.left = left + "px";
+        preview.style.top = top + "px";
+      }
+
+      function showPreview(event) {
+        const src = event.currentTarget.getAttribute("data-preview-src");
+
+        if (!src) {
+          return;
+        }
+
+        previewImage.src = src;
+        preview.classList.add("is-visible");
+        lastPoint = { clientX: event.clientX, clientY: event.clientY };
+        placePreview(lastPoint);
+      }
+
+      function hidePreview() {
+        preview.classList.remove("is-visible");
+        previewImage.removeAttribute("src");
+        lastPoint = null;
+      }
+
+      previewImage.addEventListener("load", () => {
+        if (lastPoint) {
+          placePreview(lastPoint);
+        }
+      });
+
+      targets.forEach((target) => {
+        target.addEventListener("mouseenter", showPreview);
+        target.addEventListener("mousemove", (event) => {
+          lastPoint = { clientX: event.clientX, clientY: event.clientY };
+          placePreview(lastPoint);
+        });
+        target.addEventListener("mouseleave", hidePreview);
+      });
+    })();
+  </script>
+</body>
+</html>
