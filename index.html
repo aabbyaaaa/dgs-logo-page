@@ -71,6 +71,50 @@
       font-size: 17px;
     }
 
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .note-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(18, 30, 37, 0.08);
+      color: #195d9e;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      transition:
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        background 140ms ease;
+    }
+
+    .note-link:hover {
+      transform: translateY(-1px);
+      background: #f7fbff;
+      box-shadow: 0 14px 30px rgba(18, 30, 37, 0.12);
+    }
+
+    .note-link-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
     .legend {
       min-width: 360px;
       background: rgba(255,255,255,0.9);
@@ -587,6 +631,17 @@
           <strong>Dogger Scientific</strong> 是官網交易與科學產品品牌語言；<strong>DGS</strong> 是 Dogger Scientific 的縮寫；
           <strong>DG Badge</strong> 則是產品本體上的簡化識別印記。
         </p>
+        <div class="hero-links">
+          <a
+            class="note-link"
+            href="https://www.figma.com/board/c7G0Ej6iaesW435hinAKsP/DGS-LOGO?node-id=0-1&t=9Z2nOFAOYwyxL2vQ-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="note-link-tag">筆記</span>
+            <span>查看 Figma Board</span>
+          </a>
+        </div>
       </div>
       <aside class="legend">
         <div class="legend-title">圖例</div>
