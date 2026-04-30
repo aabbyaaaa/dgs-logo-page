@@ -333,6 +333,78 @@
       line-height: 1;
     }
 
+    .logo-sim.legal-stack {
+      min-height: auto;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .logo-photo {
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      flex: 0 0 auto;
+    }
+
+    .logo-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-photo.mark-d {
+      width: min(100%, 560px);
+      height: auto;
+      background: none;
+      border-radius: 0;
+      transform: none;
+      position: static;
+      flex: 0 1 560px;
+    }
+
+    .logo-photo.mark-d::after {
+      content: none;
+    }
+
+    .logo-photo.word-scientific {
+      width: min(100%, 700px);
+      letter-spacing: 0;
+      color: inherit;
+    }
+
+    .logo-photo.word-dgs {
+      width: min(100%, 320px);
+      letter-spacing: 0;
+      color: inherit;
+    }
+
+    .logo-photo.word-dgsci {
+      width: min(100%, 250px);
+      letter-spacing: 0;
+      color: inherit;
+    }
+
+    .logo-photo.dg-badge {
+      width: 132px;
+      height: auto;
+      border: 0;
+      border-radius: 0;
+      display: block;
+      background: none;
+      color: inherit;
+    }
+
+    .logo-photo.series-word {
+      width: min(100%, 520px);
+      letter-spacing: 0;
+      color: inherit;
+    }
+
+    .legal-mark {
+      width: min(100%, 560px);
+    }
+
     [data-preview-src] {
       cursor: zoom-in;
     }
@@ -473,6 +545,7 @@
     }
 
     .variant-card .word-dgsci { font-size: 42px; }
+    .variant-card .logo-photo.word-dgsci { width: min(100%, 220px); }
     .variant-card .ci-sup { font-size: 17px; transform: translateY(-12px); }
 
     .variant-title {
@@ -678,7 +751,10 @@
           </div>
           <article class="logo-card legal">
             <div class="card-kicker">Legal Entity</div>
-            <div class="logo-sim">
+            <div class="logo-sim legal-stack">
+              <div class="legal-mark logo-photo" data-preview-src="20211216-德記-CIS設計_FA_純白LOGO-19.png">
+                <img src="20211216-德記-CIS設計_FA_純白LOGO-19.png" alt="德記總公司標誌" />
+              </div>
               <div class="legal-name">DOGGER INSTRUMENTS<br>CO., LTD.</div>
             </div>
             <h2 class="logo-title">正式公司全銜</h2>
@@ -705,8 +781,9 @@
           <article class="logo-card">
             <div class="card-kicker">Corporate Brand</div>
             <div class="logo-sim">
-              <div class="mark-d" data-preview-src="德記總公司.png"></div>
-              <div class="word-dogger">DOGGER</div>
+              <div class="mark-d logo-photo" data-preview-src="德記總公司.png">
+                <img src="20211216-德記-CIS設計_FA_純白LOGO-23.png" alt="DOGGER logo" />
+              </div>
             </div>
             <h2 class="logo-title">DOGGER</h2>
             <div class="role-pill">企業主品牌</div>
@@ -732,7 +809,9 @@
           <article class="logo-card transaction">
             <div class="card-kicker">Web Commerce / Science Brand</div>
             <div class="logo-sim">
-              <div class="word-scientific" data-preview-src="D+SCIENTIFIC.png">Dogger<br>Scientific</div>
+              <div class="word-scientific logo-photo" data-preview-src="DALL.png">
+                <img src="DGS_SCIENTIFIC.jpg" alt="Dogger Scientific logo" />
+              </div>
             </div>
             <h2 class="logo-title">Dogger Scientific</h2>
             <div class="role-pill transaction">官網交易品牌 / 科學產品品牌</div>
@@ -757,7 +836,9 @@
           <article class="logo-card black">
             <div class="card-kicker">Abbreviation / Science Line</div>
             <div class="logo-sim">
-              <div class="word-dgs" data-preview-src="德記儀器自有產品LOGO_02.png">DGS</div>
+              <div class="word-dgs logo-photo" data-preview-src="德記儀器自有產品LOGO_02.png">
+                <img src="德記儀器自有產品LOGO_02.png" alt="DGS logo" />
+              </div>
             </div>
             <h2 class="logo-title">DGS</h2>
             <div class="role-pill black">Dogger Scientific 的縮寫</div>
@@ -775,7 +856,9 @@
           <div class="variant-stack">
             <article class="variant-card">
               <div class="logo-sim">
-                <div class="word-dgsci" data-preview-src="DGSCI_不知道用途.png">DGS<span class="ci-sup">ci</span></div>
+                <div class="word-dgsci logo-photo" data-preview-src="DGSCI_不知道用途.png">
+                  <img src="DGSCI_不知道用途.png" alt="DGSci logo" />
+                </div>
               </div>
               <div class="variant-title">DGS<sup>ci</sup>｜Level 3A</div>
               <p class="variant-desc">
@@ -794,7 +877,9 @@
           <article class="logo-card black">
             <div class="card-kicker">Product Mark</div>
             <div class="logo-sim">
-              <div class="dg-badge" data-preview-src="德記儀器自有產品LOGO.jpg">DG</div>
+              <div class="dg-badge logo-photo" data-preview-src="德記儀器自有產品LOGO.jpg">
+                <img src="德記儀器自有產品LOGO.jpg" alt="DG badge" />
+              </div>
             </div>
             <h2 class="logo-title">DG Badge</h2>
             <div class="role-pill black">產品本體識別章</div>
@@ -812,8 +897,9 @@
           <article class="logo-card gray" style="min-height: 252px; margin-top: 16px;">
             <div class="card-kicker">Series / Sub-brand</div>
             <div class="logo-sim" style="min-height: 72px;">
-              <div class="dg-badge" style="width:78px;height:78px;border-width:6px;font-size:28px;">DG</div>
-              <div class="series-word" style="font-size:42px;" data-preview-src="德記儀器自有產品LOGO+子標.jpg">bato</div>
+              <div class="series-word logo-photo" data-preview-src="德記儀器自有產品LOGO+子標.jpg">
+                <img src="德記儀器自有產品LOGO+子標.jpg" alt="DG bato logo" />
+              </div>
             </div>
             <h2 class="logo-title">DG LABO / DG BATO</h2>
             <div class="role-pill gray">系列 / 子品牌</div>
