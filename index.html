@@ -177,16 +177,51 @@
       min-width: 1400px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      grid-template-rows: auto auto auto;
+      column-gap: 30px;
+      row-gap: 22px;
       align-items: start;
       position: relative;
     }
 
+    .branch-flow > .stage {
+      display: contents;
+    }
+
+    .branch-flow > .stage:nth-child(1) > .logo-card {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .branch-flow > .stage:nth-child(1) > .sublevel-grid {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .branch-flow > .stage:nth-child(1) > .stack {
+      grid-column: 1;
+      grid-row: 3;
+      margin-top: 0 !important;
+    }
+
+    .branch-flow > .stage:nth-child(2) > .logo-card {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .branch-flow > .stage:nth-child(2) > .sublevel-grid {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .branch-flow > .stage:nth-child(2) > .stack {
+      grid-column: 2;
+      grid-row: 3;
+      margin-top: 0 !important;
+    }
+
     .stage {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
     }
 
     .stage-head {
@@ -469,6 +504,7 @@
       color: #fff;
       font-weight: 950;
       padding: 8px 12px;
+      box-shadow: none;
     }
 
     .card-desc {
