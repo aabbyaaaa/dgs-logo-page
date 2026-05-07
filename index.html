@@ -794,6 +794,274 @@
       color: var(--muted);
     }
 
+    @page {
+      size: A4 landscape;
+      margin: 8mm;
+    }
+
+    @media print {
+      :root {
+        --shadow: none;
+        --radius-xl: 18px;
+        --radius-lg: 14px;
+        --radius-md: 10px;
+      }
+
+      html, body {
+        width: auto;
+        height: auto;
+        background: #fff !important;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .hero {
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        max-width: none;
+        font-size: 13px;
+      }
+
+      .hero-links,
+      .hover-preview,
+      .arrow {
+        display: none !important;
+      }
+
+      .legend {
+        width: 100%;
+        min-width: 0;
+        padding: 14px 16px;
+      }
+
+      .board,
+      .panel,
+      .decision,
+      .warning,
+      .discussion-log {
+        box-shadow: none;
+      }
+
+      .board {
+        padding: 18px;
+        overflow: visible;
+      }
+
+      .top-flow,
+      .branch-title,
+      .branch-flow {
+        min-width: 0;
+      }
+
+      .top-flow {
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .branch-title {
+        gap: 14px;
+        margin: 8px 0 14px;
+      }
+
+      .branch-flow {
+        column-gap: 16px;
+        row-gap: 14px;
+      }
+
+      .sublevel-grid,
+      .stack,
+      .matrix,
+      .decision-strip {
+        gap: 12px;
+      }
+
+      .matrix {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+
+      .decision-strip {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+
+      .stage-head {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stage-label,
+      .stage-name,
+      .sublevel-label,
+      .sublevel-name,
+      .role-pill,
+      .chip,
+      .card-kicker,
+      .rule span {
+        font-size: 10px;
+      }
+
+      .stage-label {
+        padding: 6px 10px;
+      }
+
+      .stage-name {
+        text-align: left;
+      }
+
+      .logo-card,
+      .panel,
+      .decision,
+      .warning,
+      .discussion-log,
+      .rule {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .logo-card,
+      .panel,
+      .decision,
+      .warning,
+      .discussion-log {
+        padding: 18px;
+      }
+
+      .logo-card,
+      .stack .logo-card {
+        min-height: 0;
+      }
+
+      .logo-sim {
+        min-height: 0;
+        gap: 10px;
+        margin: 0 0 12px;
+      }
+
+      .legal-name {
+        font-size: 22px;
+      }
+
+      .word-dogger {
+        font-size: 34px;
+      }
+
+      .word-dgs {
+        font-size: 48px;
+      }
+
+      .word-dglife {
+        font-size: 40px;
+      }
+
+      .series-word {
+        font-size: 34px;
+      }
+
+      .life-series-word {
+        font-size: 30px;
+      }
+
+      .logo-title {
+        font-size: 22px;
+      }
+
+      .logo-photo.word-dgs {
+        width: min(100%, 220px);
+      }
+
+      .logo-photo.word-dglife {
+        width: min(100%, 200px);
+      }
+
+      .logo-photo.word-dglife img {
+        max-height: 110px;
+      }
+
+      .logo-photo.dg-badge {
+        width: 96px;
+      }
+
+      .logo-photo.series-word {
+        width: min(100%, 280px);
+      }
+
+      .logo-title.title-logo img {
+        width: min(100%, 240px);
+      }
+
+      .role-pill {
+        padding: 5px 8px;
+        margin-bottom: 8px;
+      }
+
+      .role-pill-highlight {
+        padding: 6px 10px;
+      }
+
+      .card-desc,
+      .decision p,
+      .warning p,
+      .discussion-log li {
+        font-size: 12px;
+      }
+
+      .use-list {
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .chip {
+        padding: 5px 8px;
+      }
+
+      .panel h2,
+      .warning h2,
+      .discussion-log h2 {
+        font-size: 20px;
+      }
+
+      .decision h3 {
+        font-size: 18px;
+      }
+
+      .discussion-log ol {
+        gap: 6px;
+        padding-left: 18px;
+      }
+
+      table {
+        table-layout: fixed;
+        font-size: 10px;
+      }
+
+      th, td {
+        padding: 7px 5px;
+        word-break: break-word;
+      }
+
+      td:first-child, th:first-child {
+        width: 18%;
+      }
+    }
+
     @media (max-width: 1200px) {
       .hero { flex-direction: column; }
       .legend { width: 100%; }
@@ -1186,7 +1454,7 @@
       <h2>2026/04/30：討論紀錄</h2>
       <ol type="a">
         <li>不可使用 <code data-preview-src="DGS_SCIENTIFIC.jpg">D+SCIENTIFIC的組合</code>，因為容易讓人誤解品牌名稱是 Dogger Scientific；品牌名稱與公司全銜不是同一個概念。</li>
-        <li>DGS、DG、DG + 子標，皆可使用於 DGS 的產品線。</li>
+        <li>老大認為：DGS、DG、DG + 子標，皆可使用於 DGS 的產品線。</li>
         <li>全銜英文由 <code>INSTRUMENTS</code> 改成 <code>SCIENTIFIC</code>，即可更完整地對應 DGS。</li>
         <li>未來若要再開發產品子系列，延用 <code>DG + 子標（子系列）</code> 的方式即可。</li>
         <li>DGSCI不用不用不用！！未來不會用任何方式出現：DGSCI，只會讓「Science」這件事被重複講太多次</li>
